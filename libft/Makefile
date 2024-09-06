@@ -6,7 +6,7 @@
 #    By: bmouhib <bmouhib@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/02 18:13:50 by bmouhib           #+#    #+#              #
-#    Updated: 2024/09/02 18:53:58 by bmouhib          ###   ########.fr        #
+#    Updated: 2024/09/06 14:58:54 by bmouhib          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -140,7 +140,6 @@ OBJ_FILES		:=	$(BLUE)object files$(NO_STYLE)
 DEPS_FILES		:=	$(BLUE)dependencies files$(NO_STYLE)
 AND				:=	and
 COMPLETE		:=	complete
-BONUS_FILES		:=	bonus object files
 TO_UPPER		:=	tr '[:lower:]' '[:upper:]'
 TRUNC_A			:=	tr -d '.a'
 PROJECT			:=	$(shell $(ECHO) $(NAME) | $(TRUNC_A) | $(TO_UPPER))
@@ -150,7 +149,6 @@ NORM_MSG		:=	$(GREEN)Norminette on $(PROJECT_NAME)$(GREEN): OK!$(NO_STYLE)
 
 COMP_OBJS		:=	$(ECHO) $(CREATION) $(PROJECT_NAME) $(OBJ_FILES) $(AND) $(DEPS_FILES) $(COMPLETE)
 COMP_NAME		:=	$(ECHO) $(CREATION) $(PROJECT_NAME) $(NAME_FILE) $(COMPLETE)
-OK_NORM			:=	$(ECHO) $(NORM_MSG)
 COMP_CLEAN		:=	$(ECHO) $(DELETION) $(PROJECT_NAME) $(OBJ_FILES) $(AND) $(DEPS_FILES) $(COMPLETE)
 COMP_FCLEAN		:=	$(ECHO) $(DELETION) $(PROJECT_NAME) $(NAME_FILE) $(COMPLETE)
 
@@ -160,20 +158,11 @@ Usage: make [TARGET]
 		clean       - Remove object file(s)
 		fclean      - Remove object file(s) and archive file(s)
 		re          - Recreate the archive file(s)
-		bonus       - Build the bonus part of the program
-		norm        - Run norminette checks
-		debug       - Activate debug flags
 		help        - Display this help message
 endef
 export HELP_MSG
 
 HELP			:=	@$(ECHO) "$$HELP_MSG"
-
-# -------------------------------- NORMINETTE -------------------------------- #
-
-NORMINETTE		:=	norminette
-NORMSH			:=	$(NORMINETTE) -R CheckForbiddenSourceHeader $(SRCS)
-NORMD			:=	$(NORMINETTE) -R CheckDefine $(INCLUDES)
 
 # ---------------------------------------------------------------------------- #
 #                                    RULES                                     #
@@ -201,19 +190,9 @@ fclean:				clean
 
 re:					fclean all
 
-bonus:				all
-
-norm:
-					@$(NORMSH)
-					@$(NORMD)
-					@$(OK_NORM)
-
-debug:
-					@$(MAKE) $(MAKE_NO_PRINT) CFLAGS+="$(DEBUG_CFLAGS)" re
-
 help:
 					$(HELP)
 
 -include $(DEPS)
 
-.PHONY:				all clean fclean re bonus norm
+.PHONY:				all clean fclean re

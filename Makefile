@@ -6,7 +6,7 @@
 #    By: bmouhib <bmouhib@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/06 14:09:57 by bmouhib           #+#    #+#              #
-#    Updated: 2024/09/06 14:36:12 by bmouhib          ###   ########.fr        #
+#    Updated: 2024/09/06 15:00:06 by bmouhib          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,11 +82,13 @@ PROJECT_NAME	:=	$(WHITE)$(PROJECT)$(NO_STYLE)
 PROJ_NAME_CLI	:=	$(WHITE)$(PROJ_CLIENT)$(NO_STYLE)
 PROJ_NAME_SERV	:=	$(WHITE)$(PROJ_SERVER)$(NO_STYLE)
 NAME_FILE		:=	$(BLUE)$(NAME)$(NO_STYLE)
+CLI_NAME_FILE	:=	$(BLUE)$(CLIENT_NAME)$(NO_STYLE)
+SER_NAME_FILE	:=	$(BLUE)$(SERVER_NAME)$(NO_STYLE)
 
-COMP_NAME_CLI	:=	$(ECHO) $(CREATION) $(PROJ_NAME_CLI) $(NAME_FILE) $(COMPLETE)
-COMP_NAME_SERV	:=	$(ECHO) $(CREATION) $(PROJ_NAME_SERV) $(NAME_FILE) $(COMPLETE)
+COMP_NAME_CLI	:=	$(ECHO) $(CREATION) $(PROJECT_NAME) $(CLI_NAME_FILE) $(COMPLETE)
+COMP_NAME_SERV	:=	$(ECHO) $(CREATION) $(PROJECT_NAME) $(SER_NAME_FILE) $(COMPLETE)
 COMP_CLEAN		:=	$(ECHO) $(DELETION) $(PROJECT_NAME) $(OBJ_FILES) $(AND) $(DEPS_FILES) $(COMPLETE)
-COMP_FCLEAN		:=	$(ECHO) $(DELETION) $(PROJECT_NAME) $(NAME_FILE) $(COMPLETE)
+COMP_FCLEAN		:=	$(ECHO) $(DELETION) $(PROJECT_NAME) $(CLI_NAME_FILE) $(AND) $(SER_NAME_FILE) $(COMPLETE)
 
 define HELP_MSG
 Usage: make [TARGET]
@@ -126,9 +128,8 @@ re: fclean all
 
 clean:
 					@$(MAKE) $(MAKE_FLAGS) $(LIBFT_DIR) clean
-					@$(COMP_CLEAN)
 
-fclean:				clean
+fclean:
 					@$(MAKE) $(MAKE_FLAGS) $(LIBFT_DIR) fclean
 					@$(RM) $(SERVER_NAME)
 					@$(RM) $(CLIENT_NAME)
