@@ -6,11 +6,11 @@
 /*   By: bmouhib <bmouhib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 15:36:24 by bmouhib           #+#    #+#             */
-/*   Updated: 2024/09/02 18:52:17 by bmouhib          ###   ########.fr       */
+/*   Updated: 2024/09/10 15:19:44 by bmouhib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 int	ft_pad_math(t_flag flag, char *num, long long nb)
 {

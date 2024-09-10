@@ -6,11 +6,11 @@
 /*   By: bmouhib <bmouhib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 21:32:17 by bmouhib           #+#    #+#             */
-/*   Updated: 2024/06/09 22:54:21 by bmouhib          ###   ########.fr       */
+/*   Updated: 2024/09/10 15:19:44 by bmouhib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 void	ft_print_padding(int len, char fill, int *count)
 {

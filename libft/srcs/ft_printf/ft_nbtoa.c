@@ -6,11 +6,11 @@
 /*   By: bmouhib <bmouhib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 16:26:16 by bmouhib           #+#    #+#             */
-/*   Updated: 2024/09/02 18:52:59 by bmouhib          ###   ########.fr       */
+/*   Updated: 2024/09/10 15:19:44 by bmouhib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 int	ft_size(unsigned long int nb, long long int base)
 {

@@ -6,11 +6,11 @@
 /*   By: bmouhib <bmouhib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 15:04:29 by bmouhib           #+#    #+#             */
-/*   Updated: 2024/06/10 00:17:03 by bmouhib          ###   ########.fr       */
+/*   Updated: 2024/09/10 15:19:44 by bmouhib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 int	in_string(char c, char *str)
 {

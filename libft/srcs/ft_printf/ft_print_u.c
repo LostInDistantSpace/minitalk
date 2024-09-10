@@ -6,11 +6,11 @@
 /*   By: bmouhib <bmouhib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 22:52:42 by bmouhib           #+#    #+#             */
-/*   Updated: 2024/09/02 18:51:55 by bmouhib          ###   ########.fr       */
+/*   Updated: 2024/09/10 15:19:44 by bmouhib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 void	ft_print_u(unsigned int nb, t_flag flag, int *count)
 {

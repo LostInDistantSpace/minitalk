@@ -6,7 +6,7 @@
 /*   By: bmouhib <bmouhib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 12:27:26 by bmouhib           #+#    #+#             */
-/*   Updated: 2024/05/28 16:55:36 by bmouhib          ###   ########.fr       */
+/*   Updated: 2024/09/09 19:43:06 by bmouhib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,49 +95,3 @@ char	**ft_split(char const *s, char c)
 	array = split_words((char *)s, array, c);
 	return (array);
 }
-/*
-int	main(int ac, char **av)
-{
-	char	sep;
-	char	*str = "      Pretty please I hate   my life     ";
-	char	**tab;
-	size_t	i;
-
-	i = 0;
-	sep = 32;
-	if (ac == 2 || ac == 3)
-	{
-		if (ac == 3 && ft_strlen(av[2]))
-			sep = av[2][0];
-		printf("String taken from arguments\n");
-		printf("Seperator : '%c' | %zu words\n", sep, word_count(av[1], sep));
-		tab = ft_split(av[1], sep);
-		while (i < word_count(av[1], sep))
-		{
-			printf("	[%zu] = %s\n", i, tab[i]);
-			i++;
-		}
-		while (i > 0)
-			free(tab[--i]);
-		free(tab);
-	}
-	else
-	{
-		printf("NULL tab: ");
-		tab = ft_split(NULL, sep);
-		if (!tab)
-			printf("return is NULL as expected\n");
-		printf("Number of words : %zu\n", word_count(str, sep));
-		tab = ft_split(str, 32);
-		while (i < word_count(str, sep))
-		{
-			printf("	[%zu] = %s\n", i, tab[i]);
-			i++;
-		}
-		while (i > 0)
-			free(tab[--i]);
-		free(tab);
-	}
-	return (0);
-}
-*/

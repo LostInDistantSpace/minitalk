@@ -6,25 +6,43 @@
 /*   By: bmouhib <bmouhib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 12:29:17 by bmouhib           #+#    #+#             */
-/*   Updated: 2024/09/06 14:35:20 by bmouhib          ###   ########.fr       */
+/*   Updated: 2024/09/10 15:18:59 by bmouhib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <string.h>
 # include <stdio.h>
+# include <stdlib.h>
 # include <stdint.h>
+# include <stdarg.h>
+# include <string.h>
 # include <unistd.h>
+# include <limits.h>
 
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }	t_list;
+
+typedef struct s_flag
+{
+	int	left;
+	int	sign;
+	int	space;
+	int	hash;
+	int	zero;
+	int	star;
+	int	width;
+	int	precision;
+	int	type;
+}	t_flag;
+
+/**********************/
+/******** LIBC ********/
+/**********************/
 int		ft_atoi(const char *nptr);
 void	ft_bzero(void *s, size_t n);
 int		ft_isalpha(int c);
@@ -32,7 +50,6 @@ int		ft_isdigit(int c);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
-int		ft_printf(const char *format, ...);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
 void	*ft_memset(void *s, int c, size_t n);
@@ -69,5 +86,32 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void*));
 t_list	*ft_lstmap(t_list *lst, void*(*f)(void*), void (*del)(void*));
+
+/***********************/
+/****** FT_PRINTF ******/
+/***********************/
+t_flag	init_flag(void);
+int		is_type(char c);
+int		ft_pad_math(t_flag flag, char *num, long long nb);
+int		ft_size(unsigned long int nb, long long int base);
+void	ft_putnbr_caps(unsigned long nb, char *tab, int i, unsigned long base);
+void	ft_putnbr(unsigned long nb, char *tab, int i, unsigned long base);
+void	ft_print_var(va_list args, t_flag flag, int *count);
+int		ft_printf(const char *format, ...);
+void	ft_print_c(char c, int *count);
+void	ft_print_char(char c, t_flag flag, int *count);
+void	ft_print_s(char *c, int *count);
+void	ft_print_string(char *c, t_flag flag, int *count);
+void	ft_print_u(unsigned int nb, t_flag flag, int *count);
+void	ft_print_x(unsigned int a, int add, t_flag flag, int *count);
+int		ft_print_p(void *a, t_flag flag, int *count);
+void	ft_print_padding(int len, char c, int *count);
+void	ft_print_sign(t_flag flag, long long int nb, int *count);
+void	ft_print_nb(long long int nb, t_flag flag, int *count);
+void	flag_left(t_flag *flag);
+char	*ft_itoa_printf(int n);
+char	*ft_utoa(unsigned int n);
+char	*ft_xtoa(unsigned long int n, int x);
+char	*flag_digit(char *str, int *fdigit, t_flag *flag, va_list args);
 
 #endif
