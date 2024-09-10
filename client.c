@@ -6,12 +6,12 @@
 /*   By: bmouhib <bmouhib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 18:54:21 by bmouhib           #+#    #+#             */
-/*   Updated: 2024/09/01 21:24:02 by bmouhib          ###   ########.fr       */
+/*   Updated: 2024/09/10 16:31:46 by bmouhib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include "signal.h"
+#include "libft.h"
+#include <signal.h>
 
 static int	g_receiver;
 
